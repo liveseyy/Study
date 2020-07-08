@@ -30,20 +30,21 @@ class Ball:
 
 
 def main():
-    global root, canvas, ball
+    global root, canvas, balls
 
     root = Tk()
     canvas = Canvas(root, width=width, height=height)
     canvas.pack()
-    ball = Ball()
+    balls = [Ball() for ball in range(5)]
 
     tick()
     root.mainloop()
 
 
 def tick():
-    ball.move()
-    ball.show()
+    for ball in balls:
+        ball.move()
+        ball.show()
     root.after(50, tick)
 
 
