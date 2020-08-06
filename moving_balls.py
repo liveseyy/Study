@@ -1,5 +1,5 @@
 from tkinter import *
-from random import randint
+from random import randint, choice
 
 width = 300
 height = 200
@@ -15,7 +15,7 @@ class Ball:
         self.ball_id = canvas.create_oval(self.x - self.R,
                                           self.y - self.R,
                                           self.x + self.R,
-                                          self.y + self.R, fill='green')
+                                          self.y + self.R, fill=choice(['black', 'green', 'yellow', 'cyan', 'gray']))
 
     def move(self):
         self.x += self.dx
@@ -35,7 +35,7 @@ def main():
     root = Tk()
     canvas = Canvas(root, width=width, height=height)
     canvas.pack()
-    balls = [Ball() for ball in range(5)]
+    balls = [Ball() for ball in range(2)]
 
     tick()
     root.mainloop()
